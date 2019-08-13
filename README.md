@@ -93,26 +93,46 @@ wxdevtools -p /Users/username/demo --preview-qr-output base64@/Users/username/co
 wxdevtools -u 1.0.0@/Users/username/demo --upload-desc 'initial release'
 ```
 
-### 5. 支持自动化测试
+### 5. 构建 npm
 
-`-t, --test <project_root>`: 提交自动化测试，project_root 指定项目根路径。
+命令行触发 npm 构建。
 
-示例：
-
-```sh
-# 提交测试路径 /Users/username/demo 下的项目
-wxdevtools -t /Users/username/demo
-```
-
-### 6. 退出微信开发者工具
-
-`-q, --quit`: 退出所有微信开发者工具
+**`--build-npm <project_root>`**: 按照 project.config.json 中的配置构建，行为和菜单栏的构建 NPM 一致 
+**`--build-npm-compile-type <type>`**：手动指定编译类型（"miniprogram" | "plugin"），用于指定走 miniprogramRoot 还是 pluginRoot，优先级比 project.config.json 中的高
 
 示例：
 
 ```sh
-wxdevtools --quit
+cli --build-npm /Users/username/demo
 ```
+
+### 6. 关闭当前项目窗口
+
+通过命令行触发项目窗口关闭
+
+**`--close <project_root>`**: 如果指定的 project_root 项目被打开，将会被自动关闭
+
+示例：
+
+```sh
+# 关闭指定项目
+cli --close /Users/username/demo
+```
+
+> 注：关闭项目时，会有弹窗提示是否阻止；如未阻止，将在 3 秒后关闭
+
+### 7. 关闭开发者工具
+
+通过命令行退出开发者工具
+
+**`--quit`**: 退出开发者工具
+
+```sh
+# 退出开发者工具
+cli --quit
+```
+
+> 注：关闭开发者工具时，会有弹窗提示是否阻止；如未阻止，将在 3 秒后关闭
 
 ## 最新命令详情
 
