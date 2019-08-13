@@ -34,7 +34,7 @@ describe('wxdevtools-cli', () => {
     require(toolsBin)
 
     expect(mockExit).toBeCalled()
-    expect(console.log).toBeCalled()
+    // expect(console.log).toBeCalled()
   })
 
   it('wxdevtools 传递参数至 "微信开发者工具"', () => {
